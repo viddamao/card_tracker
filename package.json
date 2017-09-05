@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-starter-kit",
-  "version": "3.0.1",
-  "description": "Get started with React, Redux, and React-Router!",
+  "name": "card_tracker",
+  "version": "0.0.1",
+  "description": "Online tracker for card collectors",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
@@ -15,9 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
+    "url": "git+https://github.com/viddamao/card_tracker.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Vidda Wenjun Mao <maowj@gwu.edu>",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha",
