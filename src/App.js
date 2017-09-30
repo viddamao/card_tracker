@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.png';
+import ImageLoader from 'react-imageloader';
 import './App.css';
 
 class App extends Component {
@@ -27,7 +28,10 @@ class App extends Component {
       count:data.length
     });
   }
-  
+
+  preloader() {
+    return <img src="spinner.gif" />;
+  }
 
   changeCategory(event){
     event.preventDefault();
@@ -50,7 +54,8 @@ class App extends Component {
   }
 
   toggleImage(e){
-    let current = e.target.parentNode;
+    let current = e.target.parentNode.parentNode;
+    console.log(current)
     this.setState({
       showDetail:!this.state.showDetail,
       currentCard:{
@@ -100,8 +105,10 @@ class App extends Component {
 
               return (re.test(card.category)||re.test(card.name))? 
                 (
-                <li key={card.id} >
-                  <img src={card.url} className="Cards" alt="cards"/>
+                <li key={card.id}  className="Cards">
+                  <ImageLoader src={card.url} alt="#"
+                  preloader={this.preloader}>
+                  </ImageLoader>
                   <p>{card.category}</p>
                   <p>{card.name}</p>
                 </li>): 
