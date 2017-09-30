@@ -6,6 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      count:0,
       flipped:false,
       category:"All",
       keywords:"",
@@ -20,7 +21,7 @@ class App extends Component {
     var data = require('./data.json');
     this.setState({
       cards: data,
-      currentCount:data.length
+      count:data.length
     });
   }
   
@@ -29,12 +30,20 @@ class App extends Component {
     event.preventDefault();
     this.setState({
       category: event.target.value
-    });
+    },()=>{
+      this.setState({
+        count:this.filteredList.childNodes.length
+      }
+    )});
   }
   changeKeywords(event){
     this.setState({
       keywords:event.target.value
-    })
+    },()=>{
+      this.setState({
+        count:this.filteredList.childNodes.length
+      }
+    )})
   }
   render() {
     return (
@@ -62,12 +71,13 @@ class App extends Component {
             <input type="text" name="searchbox" id="searchbox" value={this.state.keywords} onChange={this.changeKeywords}/>
             </div>
 
-            <p>Total of {this.state.currentCount} cards</p>
+            <p>Total of {this.state.count} cards</p>
         </div>
-        <ul className="Card-list" >
-          {this.state.cards.map((card)=>{
+        <ul className="Card-list" ref={(list)=>{this.filteredList = (list)?list:this.state.cards}}>
+           { this.state.cards.map((card)=>{
             if (this.state.category==="All"||this.state.category===card.category){
-              let re = new RegExp(this.state.keywords,"i");
+              let re = new RegExp(this.state.keywords!==""?this.state.keywords:"","i");
+
               return (re.test(card.category)||re.test(card.name))? 
                 (
                 <li key={card.id}>
