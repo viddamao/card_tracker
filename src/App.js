@@ -19,13 +19,14 @@ class App extends Component {
   componentWillMount(){
     var data = require('./data.json');
     this.setState({
-      cards: data
+      cards: data,
+      currentCount:data.length
     });
   }
   
 
   changeCategory(event){
-    console.log(event);
+    event.preventDefault();
     this.setState({
       category: event.target.value
     });
@@ -41,7 +42,8 @@ class App extends Component {
         <div className="App-header">
           <div>
             <img src={logo} className="App-logo" alt="logo" />
-            <h2>Postcard Organizer</h2>
+            <h2>Postcard</h2> 
+            <h2>Organizer</h2>
           </div>
 
         </div>
@@ -58,24 +60,25 @@ class App extends Component {
             <div>
             <label htmlFor="searchbox">Keywords</label>
             <input type="text" name="searchbox" id="searchbox" value={this.state.keywords} onChange={this.changeKeywords}/>
-            <button>Search</button>
             </div>
+
+            <p>Total of {this.state.currentCount} cards</p>
         </div>
         <ul className="Card-list" >
           {this.state.cards.map((card)=>{
-            if (this.state.category==="All"||this.state.category===card.category)
-              return (
+            if (this.state.category==="All"||this.state.category===card.category){
+              let re = new RegExp(this.state.keywords,"i");
+              return (re.test(card.id)||re.test(card.category)||re.test(card.name))? 
+                (
                 <li key={card.id}>
                   <img src={card.url} className="Cards" alt="cards"/>
                   <p>{card.category}</p>
                   <p>{card.name}</p>
-                </li>);
-              
-              else{
-                  return null;
-                }
-            })}
-              
+                </li>): 
+                null;
+  
+            }else return null;
+            })}  
         </ul>
       </div>
     );

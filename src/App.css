@@ -26,6 +26,7 @@ input {
 body {
     font-size: 16px;
     overflow-x: hidden;
+    background-color: #222;
 }
 
 img {
@@ -72,6 +73,9 @@ a {
 
 .App {
     text-align: center;
+    font-weight: bolder;
+    background-color: #222;
+    color: white;
 }
 
 .App-logo {
@@ -82,40 +86,74 @@ a {
 .App-header {
     background-color: #222;
     height: 150px;
-    padding: 20px;
+    padding: 10px;
     color: white;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    font-weight: bolder;
 }
 
 .App-header>div {
-    width: 400px;
-    height: 100%;
-    background-color: white;
+    width: 200px;
+    height: 115px;
+    background-image: url("./bg-image.jpg");
+    background-size: cover;
     color: black;
-    padding-top: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 10px;
 }
 
 .App-header h2 {
-    margin-top: 20px;
+    margin-left: -110px;
 }
 
-.App-intro {
-    font-size: large;
+.App-header img {
+    width: 30px;
+    height: 30px;
+    margin: 10px 0 25px 150px;
 }
 
 .Filters {
-    margin: 30px;
+    padding-right: 200px;
+    text-align: right;
+    margin: -120px auto 20px;
+    border-bottom: solid 2px #eee;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .App-header>div {
+        display: none;
+    }
+    .Filters {
+        padding-right: 0;
+        text-align: left;
+    }
 }
 
 .Filters select,
-input {
-    margin: 10px;
+input,
+option,
+p {
+    margin: 5px;
+    padding: 5px;
+    background-color: #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
 }
 
-.Filters label {
-    margin-left: 30px;
+.Filters select {
+    background: url("./select.png") no-repeat 96% 0;
+    background: transparent;
+}
+
+.Filters label,
+p {
+    margin-left: 20px;
 }
 
 .Card-list {
@@ -135,6 +173,9 @@ input {
     width: 100%;
     min-height: 280px;
     padding: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
 }
 
 @keyframes App-logo-spin {
