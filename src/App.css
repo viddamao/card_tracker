@@ -61,13 +61,6 @@ a:hover {
 }
 
 
-/*去掉a的下划线*/
-
-a {
-    blr: expression(this.onFocus=this.blur())
-}
-
-
 /*if IE*/
 
 a {
@@ -112,8 +105,17 @@ a {
     font-size: large;
 }
 
-.Search {
+.Filters {
     margin: 30px;
+}
+
+.Filters select,
+input {
+    margin: 10px;
+}
+
+.Filters label {
+    margin-left: 30px;
 }
 
 .Card-list {
@@ -131,6 +133,7 @@ a {
 
 .Cards {
     width: 100%;
+    min-height: 280px;
     padding: 20px;
 }
 
