@@ -68,7 +68,7 @@ class App extends Component {
           {this.state.cards.map((card)=>{
             if (this.state.category==="All"||this.state.category===card.category){
               let re = new RegExp(this.state.keywords,"i");
-              return (re.test(card.id)||re.test(card.category)||re.test(card.name))? 
+              return (re.test(card.category)||re.test(card.name))? 
                 (
                 <li key={card.id}>
                   <img src={card.url} className="Cards" alt="cards"/>
