@@ -18,6 +18,7 @@ class App extends Component {
 
     // This binding is necessary to make `this` work in the callback
     this.changeCategory = this.changeCategory.bind(this);
+    this.changeSubset = this.changeSubset.bind(this);
     this.changeKeywords = this.changeKeywords.bind(this);
     this.toggleImage = this.toggleImage.bind(this);
   }
@@ -32,25 +33,27 @@ class App extends Component {
   preloader() {
     return <img src="spinner.gif" />;
   }
-
+  _updateFilteredList(){
+    this.setState({
+      count:this.filteredList.childNodes.length
+    }
+  )}
   changeCategory(event){
     event.preventDefault();
     this.setState({
       category: event.target.value
-    },()=>{
-      this.setState({
-        count:this.filteredList.childNodes.length
-      }
-    )});
+    },this._updateFilteredList);
+  }
+  changeSubset(event){
+    event.preventDefault();
+    this.setState({
+      subset: event.target.value
+    },this._updateFilteredList);
   }
   changeKeywords(event){
     this.setState({
       keywords:event.target.value
-    },()=>{
-      this.setState({
-        count:this.filteredList.childNodes.length
-      }
-    )})
+    },this._updateFilteredList)
   }
 
   toggleImage(e){
@@ -89,6 +92,10 @@ class App extends Component {
               <option value="Amandine Piu">Amandine Piu</option>
               <option value="Lali">Lali</option>
               <option value="Greetings From">Greetings From</option>              
+            </select>
+            <label htmlFor="subset">Subset</label>
+            <select name="subset" id="subsetFilter" value={this.state.subset} onChange={this.changeSubset}>
+              <option value="All">All</option>           
             </select>
             </div>
             <div>
