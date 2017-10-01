@@ -25,6 +25,7 @@ class App extends Component {
   componentWillMount(){
     var data = require('./data.json');
     this.setState({
+      countries:require('./countries.json'),
       cards: data,
       count:data.length
     });
@@ -89,9 +90,10 @@ class App extends Component {
             <label htmlFor="category">Category</label>
             <select name="category" id="categoryFilter" value={this.state.category} onChange={this.changeCategory}>
               <option value="All">All</option>
-              <option value="Amandine Piu">Amandine Piu</option>
-              <option value="Lali">Lali</option>
-              <option value="Greetings From">Greetings From</option>              
+              { this.state.countries.map((country)=>{
+                return(
+                <option value={country}>{country}</option>);
+              })}            
             </select>
             <label htmlFor="subset">Subset</label>
             <select name="subset" id="subsetFilter" value={this.state.subset} onChange={this.changeSubset}>
