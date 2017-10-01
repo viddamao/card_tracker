@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.png';
+import axios from 'axios';
 import ImageLoader from 'react-imageloader';
 import './App.css';
+
+let ENV = {
+  MLAB_API_KEY: process.env.MLAB_API_KEY,
+  API_KEY: process.env.API_KEY
+};     
+
+console.log(process.env)
+
+var API_KEY = ENV['MLAB_API_KEY'],
+URI = ENV['MLAB_URI'],
+SUFFIX = 'categories?API_KEY='+ API_KEY;
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +36,12 @@ class App extends Component {
   }
   componentWillMount(){
     var data = require('./data.json');
+    axios.get(URI+SUFFIX)
+    .then(res => {
+      console.log()
+      const posts = res.data.data.children.map(obj => obj.data);
+      this.setState({ posts });
+    });
     this.setState({
       countries:require('./countries.json'),
       cards: data,
