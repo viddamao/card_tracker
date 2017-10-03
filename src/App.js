@@ -5,15 +5,15 @@ import ImageLoader from 'react-imageloader';
 import './App.css';
 
 let ENV = {
-  MLAB_API_KEY: process.env.MLAB_API_KEY,
-  API_KEY: process.env.API_KEY
+  MLAB_API_KEY: process.env.MLAB_API_KEY||"7NUQeWATWY1yb9jPVH46mffYWOEkCcMj",
+  MLAB_URI: process.env.MLAB_URI||"https://api.mlab.com/api/1/ds155674/postcards/"
 };     
 
 console.log(process.env)
 
 var API_KEY = ENV['MLAB_API_KEY'],
 URI = ENV['MLAB_URI'],
-SUFFIX = 'categories?API_KEY='+ API_KEY;
+SUFFIX = 'categories?apiKey='+ API_KEY;
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class App extends Component {
     var data = require('./data.json');
     axios.get(URI+SUFFIX)
     .then(res => {
-      console.log()
+      console.log(res)
       const posts = res.data.data.children.map(obj => obj.data);
       this.setState({ posts });
     });
