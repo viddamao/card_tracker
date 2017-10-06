@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-imageloader": "^2.1.0",

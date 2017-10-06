@@ -4,17 +4,6 @@ import axios from 'axios';
 import ImageLoader from 'react-imageloader';
 import './App.css';
 
-let ENV = {
-  MLAB_API_KEY: process.env.MLAB_API_KEY||"7NUQeWATWY1yb9jPVH46mffYWOEkCcMj",
-  MLAB_URI: process.env.MLAB_URI||"https://api.mlab.com/api/1/ds155674/postcards/"
-};     
-
-console.log(process.env)
-
-var API_KEY = ENV['MLAB_API_KEY'],
-URI = ENV['MLAB_URI'],
-SUFFIX = 'categories?apiKey='+ API_KEY;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +25,8 @@ class App extends Component {
   }
   componentWillMount(){
     var data = require('./data.json');
-    axios.get(URI+SUFFIX)
+    axios.get('localhost:80/api/postcards')
+      //URI+SUFFIX)
     .then(res => {
       console.log(res)
       const posts = res.data.data.children.map(obj => obj.data);
@@ -50,7 +40,7 @@ class App extends Component {
   }
 
   preloader() {
-    return <img src="spinner.gif" />;
+    return <img src="spinner.gif" alt = "#"/>;
   }
   _updateFilteredList(){
     this.setState({
@@ -110,7 +100,7 @@ class App extends Component {
               <option value="All">All</option>
               { this.state.countries.map((country)=>{
                 return(
-                <option value={country}>{country}</option>);
+                <option key={country} value={country}>{country}</option>);
               })}            
             </select>
             <label htmlFor="subset">Subset</label>
