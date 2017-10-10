@@ -3,6 +3,7 @@ import logo from './logo.png';
 import axios from 'axios';
 import ImageLoader from 'react-imageloader';
 import './App.css';
+var URI = "https://postcard-server.herokuapp.com/api/";
 
 class App extends Component {
   constructor(props) {
@@ -11,8 +12,10 @@ class App extends Component {
       count:0,
       flipped:false,
       category:"All",
+      currentCategory:[],
       keywords:"",
       cards:[],
+      categories:{},
       showDetail:false,
       currentCard:{}
     };
@@ -24,18 +27,34 @@ class App extends Component {
     this.toggleImage = this.toggleImage.bind(this);
   }
   componentWillMount(){
-    var data = require('./data.json');
-    axios.get('localhost:80/api/postcards')
-      //URI+SUFFIX)
+    // var data = require('./data.json');
+    axios.get(URI+'postcards')
+    //URI+SUFFIX)
+  .then(res => {
+    // console.log(res.data)
+    const cards = res.data;
+    this.setState({ 
+      cards:cards,
+      count:cards.length 
+    });
+  });
+      axios.get(URI+'categories')
+    //URI+SUFFIX)
     .then(res => {
-      console.log(res)
-      const posts = res.data.data.children.map(obj => obj.data);
-      this.setState({ posts });
+      // console.log(res.data)
+      
+      const categories = {"All":["All"]};
+      res.data.map(function(category){
+        // console.log(category)
+        const name = category.name,
+        subsets = category.subsets;
+        categories[name] = subsets;
+      });
+      console.log(categories)
+      this.setState({ categories });
     });
     this.setState({
-      countries:require('./countries.json'),
-      cards: data,
-      count:data.length
+      countries:require('./countries.json')
     });
   }
 
@@ -50,7 +69,8 @@ class App extends Component {
   changeCategory(event){
     event.preventDefault();
     this.setState({
-      category: event.target.value
+      category: event.target.value,
+      currentCategory: this.state.categories[event.target.value]
     },this._updateFilteredList);
   }
   changeSubset(event){
@@ -105,7 +125,11 @@ class App extends Component {
             </select>
             <label htmlFor="subset">Subset</label>
             <select name="subset" id="subsetFilter" value={this.state.subset} onChange={this.changeSubset}>
-              <option value="All">All</option>           
+              <option value="All">All</option>   
+              { this.state.currentCategory.map((subset)=>{
+                return(
+                <option key={subset} value={subset}>{subset}</option>);
+              })}          
             </select>
             </div>
             <div>

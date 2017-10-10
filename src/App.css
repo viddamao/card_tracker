@@ -164,6 +164,7 @@ p {
 .Filters select {
     background: url("./select.png") no-repeat 96% 0;
     background: transparent;
+    min-width: 150px;
 }
 
 .Filters label,
