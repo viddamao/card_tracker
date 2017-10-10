@@ -28,11 +28,6 @@ mongodb.MongoClient.connect(url, function(err, database) {
     if (err) throw err;
     db = database;
 
-
-    var http = require('http'),
-        port = 80,
-        hostname = 'localhost';
-
     // Initialize the app.
     var server = app.listen(process.env.PORT || 80, function() {
         var port = server.address().port;
