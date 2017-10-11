@@ -43,9 +43,8 @@ class App extends Component {
     .then(res => {
       // console.log(res.data)
       
-      const categories = {"All":["All"]};
-      res.data.map(function(category){
-        // console.log(category)
+      const categories = {"All":[]};
+      res.data.forEach((category)=>{
         const name = category.name,
         subsets = category.subsets;
         categories[name] = subsets;
@@ -150,7 +149,7 @@ class App extends Component {
                   <ImageLoader src={card.url} alt="#"
                   preloader={this.preloader}>
                   </ImageLoader>
-                  <p>{card.category}</p>
+                  <p>{card.subset}</p>
                   <p>{card.name}</p>
                 </li>): 
                 null;

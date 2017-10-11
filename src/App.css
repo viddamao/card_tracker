@@ -64,12 +64,46 @@ a:hover {
 
 /*if IE*/
 
-a {
-    outline: none;
+a:link {
+    text-decoration: none;
 }
 
+a:visited {
+    text-decoration: none;
+}
 
-/*if 火狐等现代浏览器浏览器*/
+a:hover {
+    text-decoration: outline;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.Router {
+    float: right;
+    font-size: 20px;
+    padding: 30px;
+    color: white;
+}
+
+.Router .off {
+    margin: 15px;
+    width: 210px;
+    height: 100px;
+    border-radius: 50px;
+    zoom: 0.5;
+    background: url(toggle.png) 0 100px;
+}
+
+.Router .on {
+    margin: 15px;
+    width: 210px;
+    height: 100px;
+    border-radius: 50px;
+    zoom: 0.5;
+    background: url(toggle.png) 0 0;
+}
 
 .App {
     text-align: center;
