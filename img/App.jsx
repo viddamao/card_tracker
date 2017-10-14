@@ -107,10 +107,9 @@ class App extends Component {
         <div className="App-header">
           <div>
             <img src={logo} className="App-logo" alt="logo" />
-            <h2>Postcard</h2> 
-            <h2>Organizer</h2>
+            <h2>`Postcard 
+            Organizer`</h2>
           </div>
-
         </div>
         <div className="Filters">
             <div>
