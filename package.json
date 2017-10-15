@@ -7,6 +7,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.1",
+    "jest": "^21.2.1",
     "mongodb": "^2.2.31",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
