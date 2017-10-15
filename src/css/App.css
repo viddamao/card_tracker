@@ -93,7 +93,7 @@ a:active {
     height: 100px;
     border-radius: 50px;
     zoom: 0.5;
-    background: url(toggle.png) 0 100px;
+    background: url(../img/toggle.png) 0 100px;
 }
 
 .Router .on {
@@ -102,7 +102,7 @@ a:active {
     height: 100px;
     border-radius: 50px;
     zoom: 0.5;
-    background: url(toggle.png) 0 0;
+    background: url(../img/toggle.png) 0 0;
 }
 
 .App {
@@ -130,7 +130,7 @@ a:active {
 .App-header>div {
     width: 200px;
     height: 115px;
-    background-image: url("./bg-image.jpg");
+    background-image: url("../img/bg-image.jpg");
     background-size: cover;
     color: black;
     margin-top: 20px;
@@ -196,7 +196,7 @@ p {
 }
 
 .Filters select {
-    background: url("./select.png") no-repeat 96% 0;
+    background: url("../img/select.png") no-repeat 96% 0;
     background: transparent;
     min-width: 150px;
 }

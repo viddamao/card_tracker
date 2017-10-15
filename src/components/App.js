@@ -1,7 +1,7 @@
 import React from 'react'
-import '../App.css';
-import Header from '../component/Header'
-import Filters from '../component/Filters'
+import '../css/App.css';
+import Header from './Header'
+import Filters from './Filters'
 // import AddCard from '../containers/AddCard'
 import VisibleCardList from '../containers/VisibleCardList'
 

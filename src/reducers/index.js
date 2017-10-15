@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import cards from './cards'
-import visibilityFilter from './visibilityFilter'
+import categoryFilter from './categoryFilter'
+import subsetFilter from './subsetFilter'
 
 const cardApp = combineReducers({
     cards,
-    visibilityFilter
+    categoryFilter,
+    subsetFilter
 })
 
-export default todoApp
+export default cardApp

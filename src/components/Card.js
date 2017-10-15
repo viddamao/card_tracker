@@ -6,19 +6,19 @@ const Card = ({ onClick, selected, url, subset, name }) => (
         {/* <ImageLoader src={card.url} alt="#"
             preloader={this.preloader}>
         </ImageLoader> */}
-        <img src={card.url} alt="#"/>
-        <p>{card.subset}</p>
-        <p>{card.name}</p>
+        <img src={url} alt="#"/>
+        <p>{subset}</p>
+        <p>{name}</p>
     </li>
 )
 
 Card.propTypes = {
   onClick: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
-  card_id: PropTypes.String.isRequired,
-  url: PropTypes.String.isRequired,
-  subset: PropTypes.String.isRequired,
-  name: PropTypes.String.isRequired
+  card_id: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  subset: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }
 
 export default Card

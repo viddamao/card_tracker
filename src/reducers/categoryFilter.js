@@ -1,10 +1,10 @@
-const visibilityFilter = (state = 'SHOW_ALL', action) => {
+const categoryFilter = (state = 'SHOW_ALL', action) => {
     switch (action.type) {
-        case 'SET_VISIBILITY_FILTER':
+        case 'SET_CATEGORY_FILTER':
             return action.filter
         default:
             return state
     }
 }
 
-export default visibilityFilter
+export default categoryFilter

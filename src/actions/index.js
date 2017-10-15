@@ -1,6 +1,6 @@
 let nextCardId = 0
 export const addCard = (text) => ({
-  type: 'ADD_TODO',
+  type: 'ADD_CARD',
   id: nextCardId++,
   text
 })

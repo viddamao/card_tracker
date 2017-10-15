@@ -18,10 +18,10 @@ CardList.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     selected: PropTypes.bool.isRequired,
-    card_id: PropTypes.String.isRequired,
-    url: PropTypes.String.isRequired,
-    subset: PropTypes.String.isRequired,
-    name: PropTypes.String.isRequired
+    card_id: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    subset: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
   }).isRequired).isRequired,
   onCardClick: PropTypes.func.isRequired
 }
