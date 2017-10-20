@@ -1,21 +1,43 @@
+import { fetchCategories, fetchCards } from '../middleware/api'
 let nextCardId = 0
 
-export const requestCategories = () => ({
-    type: 'REQUEST_CATEGORIES'
-})
 
-export const receiveCategories = (json) => ({
+export function loadingCategories(bool) {
+    return {
+        type: 'LOADING_CATEGORIES',
+        is_loading:bool
+    };
+}
+
+export function loadingCategoriesError(bool) {
+    return {
+        type: 'LOADING_CATEGORIES_ERROR',
+        loading_error:bool
+    };
+}
+
+export const receiveCategories = (categories) => ({
     type: 'RECEIVE_CATEGORIES',
-    categories: json.data.children.map(child => child.data)
+    categories
 })
 
-export const requestCards = () => ({
-    type: 'REQUEST_CARDS'
-})
+export function loadingCards(bool) {
+    return {
+        type: 'LOADING_CARDS',
+        is_loading:bool
+    };
+}
 
-export const receiveCards = (json) => ({
+export function loadingCardsError(bool) {
+    return {
+        type: 'LOADING_CARDS_ERROR',
+        loading_error:bool
+    };
+}
+
+export const receiveCards = (cards) => ({
     type: 'RECEIVE_CARDS',
-    cards: json.data.children.map(child => child.data)
+    cards
 })
 
 export const addCard = (text) => ({

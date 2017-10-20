@@ -8,9 +8,9 @@ const Filters = (categories, subsets, currentCategory)=>(
 )
 
 Filters.propTypes = {
-  categories: PropTypes.array.isRequired,
-  subsets: PropTypes.object.isRequired,
-  currentCategory: PropTypes.array.isRequired
+  categories: PropTypes.array,
+  subsets: PropTypes.object,
+  currentCategory: PropTypes.array
 }
 
 
