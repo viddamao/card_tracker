@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FilterCards from '../containers/FilterCards'
+// import FilterCards from '../containers/FilterCards'
 
 const Filters = (categories, subsets, currentCategory)=>(
     <div className="Filters">

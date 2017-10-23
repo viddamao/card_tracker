@@ -1,15 +1,12 @@
 import { combineReducers } from 'redux'
-import cards from './cards'
-import categoryFilter from './categoryFilter'
-import subsetFilter from './subsetFilter'
-import {fetchCards, fetchCategories} from './fetchData'
+// import cards from './cards'
+import filter from './filter'
+import {cards, categories} from './fetchData'
 
 const cardApp = combineReducers({
+    filter,
     cards,
-    categoryFilter,
-    subsetFilter,
-    fetchCards,
-    fetchCategories
+    categories 
 })
 
 export default cardApp

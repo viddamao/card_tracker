@@ -1,5 +1,5 @@
 //Loading cards
-export function fetchCards(state = [], action) {
+export function cards(state = [], action) {
     switch (action.type) {
         case 'LOADING_CARDS_ERROR':
             return {...state,
@@ -12,7 +12,6 @@ export function fetchCards(state = [], action) {
             }
 
         case 'RECEIVE_CARDS':
-            console.log(action)
             return {
                 ...state,
                 cards: action.cards
@@ -23,7 +22,7 @@ export function fetchCards(state = [], action) {
     }
 }
 
-export function fetchCategories(state = [], action) {
+export function categories(state = [], action) {
     switch (action.type) {
         case 'LOADING_CATEGORIES_ERROR':
             return {...state,
