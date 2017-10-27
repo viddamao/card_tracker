@@ -18,6 +18,11 @@ export const receiveCategories = (categories) => ({
     categories
 })
 
+export const receiveCategoryList = (categoryList) => ({
+    type: 'RECEIVE_CATEGORYLIST',
+    categoryList
+})
+
 export function loadingCards(bool) {
     return {
         type: 'LOADING_CARDS',

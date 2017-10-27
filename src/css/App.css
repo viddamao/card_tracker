@@ -80,6 +80,14 @@ a:active {
     text-decoration: none;
 }
 
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(100px, auto);
+    grid-gap: 10px;
+    grid-template-areas: "App-header Filters" "CardList .";
+}
+
 .Router {
     float: right;
     font-size: 20px;
@@ -151,8 +159,7 @@ a:active {
 .Filters {
     padding-right: 200px;
     text-align: right;
-    margin: -120px auto 20px;
-    border-bottom: solid 2px #eee;
+    margin: 0 auto 20px;
     padding-bottom: 20px;
 }
 

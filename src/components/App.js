@@ -6,11 +6,11 @@ import Filters from './Filters'
 import VisibleCardList from '../containers/VisibleCardList'
 
 const App = () => (
-  <div>
+  <div className="wrapper">
     <Header />
     {/* <AddCard /> */}
     <Filters />
-    <VisibleCardList />
+    {/* ?<VisibleCardList /> */}
   </div>
 )
 

@@ -34,12 +34,17 @@ export function categories(state = [], action) {
                 category_is_loading: action.is_loading
             }
 
-        case 'RECEIVE_CATEGORIES':
+            case 'RECEIVE_CATEGORIES':
             return {
                 ...state,
                 categories: action.categories
             }
-
+            case 'RECEIVE_CATEGORYLIST':
+            return {
+                ...state,
+                categoryList: action.categoryList
+            }
+            
         default:
             return state
     }
